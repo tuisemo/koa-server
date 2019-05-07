@@ -1,14 +1,19 @@
-import low from 'lowdb';
-const data = low('db.json');
+const low = require('lowdb');
+const FileSync = require('lowdb/adapters/FileSync');
+const adapter = new FileSync('db.json');
+const data = low(adapter);
+
+// Set some defaults (required if your JSON file is empty)
+data.defaults({ posts: [], user: {}, count: 0 }).write();
 
 class db {
   constructor() {}
 
-  get(key) {
-    data.get(key).value();
+  read() {
+    return data.read();
   }
-  set(key, value) {
-    data.set(key, value).write();
+  write(key, value) {
+    return data.set(key, value).write();
   }
 }
-export default db;
+module.exports = db;

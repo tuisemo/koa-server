@@ -4,12 +4,12 @@ router.prefix('/users');
 
 router.get('/', function*(next) {
   this.body = 'this is a users response!';
-  yield true;
+  yield {};
 });
 
 router.get('/bar', function*(next) {
   this.body = 'this is a users/bar response!';
-  yield true;
+  yield {};
 });
 
 module.exports = router;
