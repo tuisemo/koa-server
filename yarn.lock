@@ -493,15 +493,15 @@ cliui@^2.1.0:
     right-align "^0.1.1"
     wordwrap "0.0.2"
 
-co-body@^5.1.0:
-  version "5.2.0"
-  resolved "http://registry.npm.sdp.nd/co-body/download/co-body-5.2.0.tgz#5a0a658c46029131e0e3a306f67647302f71c124"
-  integrity sha1-WgpljEYCkTHg46MG9nZHMC9xwSQ=
+co-body@^6.0.0:
+  version "6.0.0"
+  resolved "http://registry.npm.sdp.nd/co-body/download/co-body-6.0.0.tgz#965b9337d7f5655480787471f4237664820827e3"
+  integrity sha1-lluTN9f1ZVSAeHRx9CN2ZIIIJ+M=
   dependencies:
     inflation "^2.0.0"
-    qs "^6.4.0"
-    raw-body "^2.2.0"
-    type-is "^1.6.14"
+    qs "^6.5.2"
+    raw-body "^2.3.3"
+    type-is "^1.6.16"
 
 co-render@0:
   version "0.2.0"
@@ -1853,12 +1853,12 @@ kind-of@^6.0.0, kind-of@^6.0.2:
   resolved "http://registry.npm.sdp.nd/kind-of/download/kind-of-6.0.2.tgz#01146b36a6218e64e58f3a8d66de5d7fc6f6d051"
   integrity sha1-ARRrNqYhjmTljzqNZt5df8b20FE=
 
-koa-bodyparser@^2.5.0:
-  version "2.5.0"
-  resolved "http://registry.npm.sdp.nd/koa-bodyparser/download/koa-bodyparser-2.5.0.tgz#3eb7243f47998a2e772db05f6dc4e0f4f3ccbdf0"
-  integrity sha1-PrckP0eZii53LbBfbcTg9PPMvfA=
+koa-bodyparser@^4.2.1:
+  version "4.2.1"
+  resolved "http://registry.npm.sdp.nd/koa-bodyparser/download/koa-bodyparser-4.2.1.tgz#4d7dacb5e6db1106649b595d9e5ccb158b6f3b29"
+  integrity sha1-TX2stebbEQZkm1ldnlzLFYtvOyk=
   dependencies:
-    co-body "^5.1.0"
+    co-body "^6.0.0"
     copy-to "^2.0.1"
 
 koa-compose@^2.3.0:
@@ -2788,12 +2788,12 @@ punycode@^2.1.0:
   resolved "http://registry.npm.sdp.nd/punycode/download/punycode-2.1.1.tgz#b58b010ac40c22c5657616c8d2c2c02c7bf479ec"
   integrity sha1-tYsBCsQMIsVldhbI0sLALHv0eew=
 
-qs@^6.4.0:
+qs@^6.5.2:
   version "6.7.0"
   resolved "http://registry.npm.sdp.nd/qs/download/qs-6.7.0.tgz#41dc1a015e3d581f1621776be31afb2876a9b1bc"
   integrity sha1-QdwaAV49WB8WIXdr4xr7KHapsbw=
 
-raw-body@^2.2.0:
+raw-body@^2.3.3:
   version "2.3.3"
   resolved "http://registry.npm.sdp.nd/raw-body/download/raw-body-2.3.3.tgz#1b324ece6b5706e153855bc1148c65bb7f6ea0c3"
   integrity sha1-GzJOzmtXBuFThVvBFIxlu39uoMM=
@@ -3470,7 +3470,7 @@ type-check@~0.3.2:
   dependencies:
     prelude-ls "~1.1.2"
 
-type-is@^1.5.5, type-is@^1.6.14:
+type-is@^1.5.5, type-is@^1.6.16:
   version "1.6.18"
   resolved "http://registry.npm.sdp.nd/type-is/download/type-is-1.6.18.tgz#4e552cd05df09467dcbc4ef739de89f2cf37c131"
   integrity sha1-TlUs0F3wlGfcvE73Od6J8s83wTE=

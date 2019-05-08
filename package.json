@@ -24,7 +24,8 @@
     "koa-views": "^3.1.0",
     "lint-staged": "^8.1.5",
     "lowdb": "^1.0.0",
-    "prettier": "^1.17.0"
+    "prettier": "^1.17.0",
+    "shortid": "^2.2.14"
   },
   "devDependencies": {
     "cz-conventional-changelog": "^2.1.0",
