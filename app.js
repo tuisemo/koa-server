@@ -1,30 +1,31 @@
-var app = require('koa')(),
-  logger = require('koa-logger'),
-  json = require('koa-json'),
-  views = require('koa-views'),
-  onerror = require('koa-onerror');
+const Koa = require('koa');
+const logger = require('koa-logger');
+const json = require('koa-json');
+const views = require('koa-views');
+const onerror = require('koa-onerror');
+const path = require('path');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
 var api = require('./routes/api');
 
+const app = new Koa();
 // error handler
 onerror(app);
 
 // global middlewares
 app.use(
-  views('views', {
-    root: __dirname + '/views',
-    default: 'jade'
+  views(path.join(__dirname, './views'), {
+    extension: 'ejs'
   })
 );
 app.use(require('koa-bodyparser')());
 app.use(json());
 app.use(logger());
 
-app.use(function*(next) {
+app.use(async (ctx, next) => {
   var start = new Date();
-  yield next;
+  await next();
   var ms = new Date() - start;
   console.log('%s %s - %s', this.method, this.url, ms);
 });

@@ -12,8 +12,8 @@
   "dependencies": {
     "co": "^4.6.0",
     "debug": "^4.3.2",
+    "ejs": "^2.5.7",
     "husky": "^7.0.2",
-    "jade": "~1.11.0",
     "koa": "^2.13.3",
     "koa-bodyparser": "^4.3.0",
     "koa-json": "^2.0.2",

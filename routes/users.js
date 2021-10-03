@@ -1,15 +1,17 @@
-var router = require('koa-router')();
+const Router = require('koa-router');
+
+const router = new Router();
 
 router.prefix('/users');
 
-router.get('/', function*(next) {
+router.get('/', async (ctx, next) => {
   this.body = 'this is a users response!';
-  yield {};
+  await next();
 });
 
-router.get('/bar', function*(next) {
+router.get('/bar', async (ctx, next) => {
   this.body = 'this is a users/bar response!';
-  yield {};
+  await next();
 });
 
 module.exports = router;
