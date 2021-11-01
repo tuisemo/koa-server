@@ -1,45 +1,47 @@
-const Koa = require('koa');
-const logger = require('koa-logger');
-const json = require('koa-json');
-const views = require('koa-views');
-const onerror = require('koa-onerror');
-const path = require('path');
+const Koa = require('koa')
+const app = new Koa()
+const views = require('koa-views')
+const json = require('koa-json')
 
-var index = require('./routes/index');
-var users = require('./routes/users');
-var api = require('./routes/api');
+const onerror = require('koa-onerror')
+const bodyparser = require('koa-bodyparser')
+const logger = require('koa-logger')
 
-const app = new Koa();
+const index = require('./routes/index')
+const users = require('./routes/users')
+const proxy = require('./routes/proxy')
+
 // error handler
-onerror(app);
+onerror(app)
 
-// global middlewares
-app.use(
-  views(path.join(__dirname, './views'), {
-    extension: 'ejs'
-  })
-);
-app.use(require('koa-bodyparser')());
-app.use(json());
-app.use(logger());
+// middlewares
+app.use(bodyparser({
+  enableTypes: ['json', 'form', 'text']
+}))
+app.use(json())
+app.use(logger())
+app.use(require('koa-static')(__dirname + '/public'))
 
+app.use(views(__dirname + '/views', {
+  extension: 'ejs'
+}))
+
+// logger
 app.use(async (ctx, next) => {
-  var start = new Date();
-  await next();
-  var ms = new Date() - start;
-  console.log('%s %s - %s', this.method, this.url, ms);
-});
+  const start = new Date()
+  await next()
+  const ms = new Date() - start
+  console.log(`${ctx.method} ${ctx.url} - ${ms}ms`)
+})
 
-app.use(require('koa-static')(__dirname + '/public'));
-
-// routes definition
-app.use(index.routes(), index.allowedMethods());
-app.use(users.routes(), users.allowedMethods());
-app.use(api.routes(), api.allowedMethods());
+// routes
+app.use(index.routes(), index.allowedMethods())
+app.use(users.routes(), users.allowedMethods())
+app.use(proxy.routes(), proxy.allowedMethods())
 
 // error-handling
 app.on('error', (err, ctx) => {
-  console.error('server error', err, ctx);
+  console.error('server error', err, ctx)
 });
 
-module.exports = app;
+module.exports = app
